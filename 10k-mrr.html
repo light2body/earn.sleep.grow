@@ -1,0 +1,561 @@
+<!--
+  BEFORE YOU PUBLISH:
+  1) Andi's headshot is set as  andi-photo.png  in this SAME folder — already
+     in place and wired into the "About" section near the bottom.
+  2) Upload this file, plus 10k-video-small.mp4, andi-photo.png,
+     testimonial-1.jpg, testimonial-2.jpg and testimonial-3.png ALL into the
+     same folder of your earn.sleep.grow GitHub repo (alongside course.html)
+     — the page links to them by filename only, so they must sit next to
+     this HTML file.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10K A Month Masterclass — Earn.Sleep.Grow.</title>
+<meta name="description" content="A 2-hour money-mindset intensive from Regan Hillyer — plus the rights to resell it and keep 100%.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-0:#1E120C;
+    --bg-1:#2A1810;
+    --bg-alt:#241609;
+    --panel:rgba(58,42,31,0.55);
+    --panel-solid:#3A2A1F;
+    --panel-border:rgba(227,192,141,0.14);
+    --cream:#F5EDE4;
+    --muted:#B8A99A;
+    --terracotta:#C97C5D;
+    --terracotta-dark:#B0663F;
+    --gold:#E3C08D;
+    --gold-line:#D4A574;
+    --gold-bg:linear-gradient(135deg,#F6E2A8 0%,#EFCE86 45%,#E3B968 100%);
+    --ink-on-gold:#3D2418;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  html,body{overflow-x:hidden;}
+  body{
+    background:linear-gradient(180deg,var(--bg-1) 0%,var(--bg-0) 100%);
+    color:var(--cream);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{font-family:'Playfair Display',serif;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+  .gold-text{color:var(--gold);font-style:italic;}
+  .muted{color:var(--muted);}
+
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(30,18,12,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--panel-border);
+  }
+  header .wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;gap:12px;}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:17px;color:var(--cream);white-space:nowrap;}
+  .brand .moon{
+    width:34px;height:34px;border-radius:50%;flex:0 0 auto;
+    background:var(--gold-bg);
+    display:flex;align-items:center;justify-content:center;font-size:16px;
+  }
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:13px 26px;border-radius:999px;font-weight:700;font-size:14px;
+    letter-spacing:.02em;cursor:pointer;border:none;white-space:nowrap;
+  }
+  .btn-primary{
+    background:var(--gold-bg);
+    color:var(--ink-on-gold);
+    box-shadow:0 8px 22px rgba(188,138,37,0.3);
+  }
+  .btn-primary:hover{filter:brightness(1.05);}
+  header .btn{padding:10px 18px;font-size:12.5px;}
+
+  .hero{padding:56px 0 60px;}
+  .hero-card{
+    background:var(--gold-bg);
+    border-radius:28px;
+    padding:64px 56px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-card::after{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 20% 20%, rgba(255,255,255,0.35), transparent 45%),
+               radial-gradient(circle at 85% 75%, rgba(255,255,255,0.25), transparent 40%);
+    pointer-events:none;
+  }
+  .badge{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(61,36,24,0.1);
+    color:var(--ink-on-gold);
+    padding:7px 18px;border-radius:999px;
+    font-size:11px;letter-spacing:.1em;font-weight:700;text-transform:uppercase;
+    margin-bottom:24px;position:relative;
+  }
+  .hero-card h1{
+    font-size:44px;font-weight:700;line-height:1.18;letter-spacing:-.01em;
+    color:var(--ink-on-gold);max-width:720px;margin:0 auto 18px;position:relative;
+  }
+  .hero-card p.lede{
+    font-size:17px;color:#5A3A26;max-width:520px;margin:0 auto 32px;position:relative;
+  }
+  .price-row{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;position:relative;}
+  .btn-dark{
+    background:var(--ink-on-gold);color:var(--gold);
+    box-shadow:0 10px 24px rgba(61,36,24,0.3);
+  }
+  .price-note{font-size:13px;color:#5A3A26;}
+  .price-note b{font-size:17px;}
+  .fine{font-size:12px;color:#7A5A3E;margin-top:18px;position:relative;}
+
+  .chip-row{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+    max-width:900px;margin:-30px auto 0;position:relative;padding:0 24px;
+  }
+  .chip{
+    background:var(--panel-solid);border:1px solid var(--panel-border);
+    border-radius:14px;padding:16px 14px;text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,0.25);
+  }
+  .chip .ic{font-size:20px;margin-bottom:6px;}
+  .chip h3{font-size:13.5px;font-weight:700;margin-bottom:2px;color:var(--cream);}
+  .chip p{font-size:11.5px;color:var(--muted);}
+
+  section{padding:64px 0;}
+  .section-alt{background:var(--bg-alt);}
+  .section-tag{
+    font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);
+    font-weight:700;margin-bottom:12px;
+  }
+  .section-head{max-width:600px;margin:0 auto 40px;text-align:center;}
+  .section-head h2{font-size:32px;font-weight:700;line-height:1.2;color:var(--cream);}
+  .divider{height:1px;width:100%;background:linear-gradient(90deg,transparent,var(--gold-line),transparent);opacity:.4;}
+
+  /* Video */
+  .video-frame{
+    background:var(--panel-solid);border:1px solid var(--panel-border);
+    border-radius:18px;padding:8px;max-width:260px;margin:0 auto;
+  }
+  .video-frame video{width:100%;display:block;border-radius:12px;background:#000;}
+
+  /* For you if */
+  .foryou-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+  .foryou-item{
+    background:var(--panel);border:1px solid var(--panel-border);
+    border-radius:14px;padding:20px 22px;font-size:14.5px;color:var(--cream);
+    display:flex;gap:14px;align-items:flex-start;
+  }
+  .foryou-item .tick{
+    flex:0 0 auto;width:24px;height:24px;border-radius:50%;
+    background:rgba(227,192,141,0.14);color:var(--gold);
+    display:flex;align-items:center;justify-content:center;font-size:13px;margin-top:1px;
+  }
+
+  /* Curriculum — stacked rows */
+  .curr-list{display:flex;flex-direction:column;}
+  .curr-row{
+    display:grid;grid-template-columns:64px 1fr;gap:22px;align-items:start;
+    padding:24px 0;border-bottom:1px solid var(--panel-border);
+  }
+  .curr-row:first-child{padding-top:0;}
+  .curr-row:last-child{border-bottom:none;}
+  .curr-row .part{font-family:'Playfair Display',serif;font-style:italic;color:var(--gold);font-size:26px;}
+  .curr-row h3{font-size:17px;font-weight:700;margin-bottom:6px;color:var(--cream);}
+  .curr-row p{font-size:14px;color:var(--muted);}
+
+  /* What you get */
+  .get-grid{display:flex;flex-direction:column;gap:12px;}
+  .get-row{
+    display:flex;align-items:center;gap:16px;
+    background:var(--panel);border:1px solid var(--panel-border);
+    border-radius:14px;padding:18px 22px;
+  }
+  .check{
+    width:26px;height:26px;border-radius:50%;flex:0 0 auto;
+    background:rgba(227,192,141,0.14);color:var(--gold);
+    display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;
+  }
+  .get-row .label{font-size:14.5px;color:var(--cream);}
+
+  /* MRR explainer — vivid gold insert */
+  .mrr-box{
+    background:var(--gold-bg);
+    border-radius:24px;padding:44px;text-align:center;
+  }
+  .mrr-box h2{font-size:28px;margin-bottom:14px;color:var(--ink-on-gold);}
+  .mrr-box p{color:#5A3A26;font-size:15px;max-width:600px;margin:0 auto 14px;}
+  .mrr-rules{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px;}
+  .mrr-rule{background:rgba(255,255,255,0.5);border-radius:12px;padding:16px 18px;}
+  .mrr-rule .big{font-family:'Playfair Display',serif;font-size:20px;color:var(--ink-on-gold);margin-bottom:3px;}
+  .mrr-rule .small{font-size:12px;color:#6B4A30;}
+
+  /* Steps */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  .step{background:var(--panel);border:1px solid var(--panel-border);border-radius:16px;padding:24px 20px;}
+  .step .n{
+    width:32px;height:32px;border-radius:50%;background:var(--terracotta);color:#1E120C;
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;margin-bottom:14px;
+  }
+  .step h3{font-size:14.5px;margin-bottom:6px;color:var(--cream);}
+  .step p{font-size:13px;color:var(--muted);}
+
+  /* About */
+  .about{display:grid;grid-template-columns:140px 1fr;gap:30px;align-items:center;
+    background:var(--panel);border:1px solid var(--panel-border);border-radius:20px;padding:36px;}
+  .about .avatar{
+    width:140px;height:140px;border-radius:50%;flex:0 0 auto;
+    background:var(--gold-bg);
+    display:flex;align-items:center;justify-content:center;font-size:40px;
+    overflow:hidden;
+  }
+  .about .avatar img{width:100%;height:100%;object-fit:cover;}
+  .about p{font-size:14.5px;color:var(--muted);}
+  .about h3{margin-bottom:8px;font-size:18px;color:var(--cream);}
+
+  /* Testimonials */
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1000px;margin:0 auto;}
+  .testi-card{
+    background:var(--panel-solid);border:1px solid var(--panel-border);
+    border-radius:18px;padding:10px;
+  }
+  .testi-card img{width:100%;height:auto;border-radius:12px;display:block;}
+  .testi-note{text-align:center;font-size:12px;color:var(--muted);max-width:520px;margin:28px auto 0;}
+
+  /* FAQ */
+  details{
+    background:var(--panel);border:1px solid var(--panel-border);
+    border-radius:14px;padding:20px 24px;margin-bottom:12px;
+  }
+  summary{cursor:pointer;font-weight:600;font-size:15px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;color:var(--cream);}
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:"+";font-size:20px;color:var(--gold);font-weight:400;flex:0 0 auto;}
+  details[open] summary::after{content:"–";}
+  details .a{margin-top:14px;font-size:14px;color:var(--muted);}
+  details .a a{color:var(--gold);text-decoration:underline;}
+  details .a p{margin-bottom:10px;}
+
+  .final-cta{text-align:center;padding:70px 0;}
+  .final-cta h2{font-size:34px;margin-bottom:16px;color:var(--cream);}
+  .final-cta p{color:var(--muted);max-width:460px;margin:0 auto 30px;font-size:15px;}
+
+  footer{border-top:1px solid var(--panel-border);padding:40px 0 56px;}
+  footer .legal{font-size:12px;color:var(--muted);max-width:760px;margin-bottom:18px;line-height:1.7;}
+  footer .links{display:flex;gap:18px;flex-wrap:wrap;font-size:12.5px;color:var(--gold);margin-bottom:18px;}
+  footer .bottom{font-size:12px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+
+  @media(max-width:860px){
+    .hero-card{padding:44px 24px;}
+    .hero-card h1{font-size:32px;}
+    .chip-row{grid-template-columns:1fr 1fr;}
+    .foryou-grid{grid-template-columns:1fr;}
+    .mrr-rules{grid-template-columns:1fr;}
+    .steps{grid-template-columns:1fr 1fr;}
+    .about{grid-template-columns:1fr;text-align:center;}
+    .about .avatar{margin:0 auto;}
+    .curr-row{grid-template-columns:40px 1fr;gap:14px;}
+    .curr-row .part{font-size:20px;}
+    .testi-grid{grid-template-columns:1fr;max-width:360px;}
+    footer .bottom{flex-direction:column;}
+  }
+  @media(max-width:520px){
+    .steps{grid-template-columns:1fr;}
+    .chip-row{grid-template-columns:1fr 1fr;gap:10px;}
+    .hero-card{padding:36px 18px;border-radius:20px;}
+    .hero-card h1{font-size:26px;}
+    .hero-card p.lede{font-size:15px;}
+    .badge{font-size:10px;padding:6px 14px;}
+    section{padding:48px 0;}
+    .section-head h2{font-size:26px;}
+    header .btn{padding:9px 14px;font-size:11.5px;}
+    .brand{font-size:14.5px;}
+    .brand .moon{width:28px;height:28px;font-size:13px;}
+    .about{padding:24px;}
+    .video-frame{padding:10px;border-radius:18px;}
+    .video-frame video{border-radius:12px;}
+    .mrr-box{padding:28px 20px;}
+    .final-cta h2{font-size:27px;}
+  }
+  @media(max-width:380px){
+    header .wrap{padding:12px 16px;gap:8px;}
+    .brand{font-size:13px;gap:6px;}
+    .brand .moon{width:24px;height:24px;font-size:11px;}
+    header .btn{padding:8px 12px;font-size:10.5px;}
+    .wrap{padding:0 16px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand"><span class="moon">🌙</span> Earn.Sleep.Grow.</div>
+    <a href="https://buy.stripe.com/eVq28q0Cb9h56kPgFMcAo01" class="btn btn-primary">Get Access — $97</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-card">
+      <span class="badge">Masterclass · Master Resell Rights Included</span>
+      <h1>The $10K Training You Also Get to <span style="font-style:italic;">Sell.</span></h1>
+      <p class="lede">A 2-hour money-mindset intensive by Regan Hillyer with bonus ACTIVATION — plus full rights to resell it and keep 100%.</p>
+      <div class="price-row">
+        <a href="https://buy.stripe.com/eVq28q0Cb9h56kPgFMcAo01" class="btn btn-dark">Get Instant Access →</a>
+        <span class="price-note">One-time <b>$97</b></span>
+      </div>
+      <p class="fine">Digital product · non-refundable</p>
+    </div>
+    <div class="chip-row">
+      <div class="chip"><div class="ic">🧠</div><h3>Mindset Reset</h3><p>In one sitting</p></div>
+      <div class="chip"><div class="ic">⚡</div><h3>2-Hr Workshop</h3><p>Stream anytime</p></div>
+      <div class="chip"><div class="ic">🌟</div><h3>Bonus Activation</h3><p>By Regan</p></div>
+      <div class="chip"><div class="ic">🔁</div><h3>Yours to Sell</h3><p>Keep 100%</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="video">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-tag">See It In Action</div>
+      <h2>A glimpse inside the training.</h2>
+    </div>
+    <div class="video-frame">
+      <video controls preload="metadata">
+        <source src="10k-video-small.mp4" type="video/mp4">
+        Your browser doesn't support embedded video — you can still download the clip directly.
+      </video>
+    </div>
+  </div>
+</section>
+
+<section id="foryou">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-tag">Is This You</div>
+      <h2>You're in the right place if...</h2>
+    </div>
+    <div class="foryou-grid">
+      <div class="foryou-item"><span class="tick">✓</span>You want to start selling online, but have no idea where to begin — this hands you a ready-made product on day one.</div>
+      <div class="foryou-item"><span class="tick">✓</span>You've hit $10K some months and lost it the next. You want consistency, not luck.</div>
+      <div class="foryou-item"><span class="tick">✓</span>Wanting big money still feels a little "naughty" to admit out loud. Let's quietly fix that.</div>
+      <div class="foryou-item"><span class="tick">✓</span>You're not lazy or unambitious — you've just never had the mechanics laid out for you.</div>
+      <div class="foryou-item"><span class="tick">✓</span>You already coach or teach, and would love a second income stream that runs itself.</div>
+      <div class="foryou-item"><span class="tick">✓</span>You're already earning well, and want the next gear — without burning out to get there.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt" id="curriculum">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-tag">Inside The Training</div>
+      <h2>Five parts. Nothing wasted.</h2>
+    </div>
+    <div class="curr-list">
+      <div class="curr-row"><span class="part">01</span><div><h3>Reset your money mindset</h3><p>Start where it actually starts — your beliefs, not a spreadsheet.</p></div></div>
+      <div class="curr-row"><span class="part">02</span><div><h3>Rewrite the beliefs running your bank account</h3><p>Name the invisible ceiling, and it loses its grip.</p></div></div>
+      <div class="curr-row"><span class="part">03</span><div><h3>Spot what's capping your income now</h3><p>The specific pattern keeping you at your current number.</p></div></div>
+      <div class="curr-row"><span class="part">04</span><div><h3>Learn the $10K/month strategies</h3><p>Regan's own tools for consistency, not one lucky month.</p></div></div>
+      <div class="curr-row"><span class="part">05</span><div><h3>Expand your capacity to hold more</h3><p>Calling money in is half the equation. Keeping it is the other.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="included">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-tag">What You Get</div>
+      <h2>Everything in one place.</h2>
+    </div>
+    <div class="get-grid">
+      <div class="get-row"><div class="check">✓</div><div class="label">Instant access to Regan Hillyer's 2-Hour "$10K A Month" Workshop</div></div>
+      <div class="get-row"><div class="check">✓</div><div class="label">Bonus Activation by Regan, to fast-track your results</div></div>
+      <div class="get-row"><div class="check">✓</div><div class="label">Master Resell Rights — sell this exact training, keep 100%</div></div>
+      <div class="get-row"><div class="check">✓</div><div class="label">All the tools and strategies from Regan's years in business</div></div>
+      <div class="get-row"><div class="check">✓</div><div class="label">Access to a private community on Regan's platform</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt" id="mrr">
+  <div class="wrap">
+    <div class="mrr-box">
+      <div class="section-tag" style="color:#6B4A18;">In Plain English</div>
+      <h2 class="serif">What's "Master Resell Rights"?</h2>
+      <p>Normally, when you learn something transformational, you keep it to yourself. This flips that: you get the training <i>and</i> permission to sell the exact same training onward — no filming, no building, nothing to create. It's a bonus, not a requirement.</p>
+      <div class="mrr-rules">
+        <div class="mrr-rule"><div class="big">100%</div><div class="small">You keep the full sale price. No commission.</div></div>
+        <div class="mrr-rule"><div class="big">$97 min.</div><div class="small">The only rule — protects the training's value.</div></div>
+        <div class="mrr-rule"><div class="big">Fully licensed</div><div class="small">Official terms linked in the footer below.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:36px 0 0;">
+  <div class="wrap" style="text-align:center;">
+    <a href="https://buy.stripe.com/eVq28q0Cb9h56kPgFMcAo01" class="btn btn-primary" style="padding:15px 32px;font-size:14.5px;">Get Access — $97 →</a>
+  </div>
+</section>
+
+<section id="steps">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-tag">What Happens Next</div>
+      <h2>From "yes" to inside, in four steps.</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h3>Say yes</h3><p>$97, one-time, instant checkout.</p></div>
+      <div class="step"><div class="n">2</div><h3>Get your receipt</h3><p>Straight to your inbox — keep it.</p></div>
+      <div class="step"><div class="n">3</div><h3>Register with Regan</h3><p>Quick form. Under "Purchased from," enter <b>Andrea Drab</b>.</p></div>
+      <div class="step"><div class="n">4</div><h3>You're in</h3><p>Regan's team emails your private access link.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt" id="about">
+  <div class="wrap">
+    <div class="about">
+      <div class="avatar"><img src="andi-photo.png" alt="Andi Dráb" onerror="this.parentElement.textContent='🌙'"></div>
+      <div>
+        <h3>A note from Andi Dráb</h3>
+        <p>I'm deeply committed to fostering positive change in health, wealth, and holistic well-being. My passion is uncovering transformative solutions that lead not only to financial freedom, but to a life brimming with abundance and joy. I'm sharing Regan's training because it was one of the pieces that moved the needle for me — and I think it might for you too.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt" id="testimonials">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-tag">Real Reactions</div>
+      <h2>What people are saying about the training.</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card"><img src="testimonial-1.jpg" alt="Reaction to the 10K A Month workshop"></div>
+      <div class="testi-card"><img src="testimonial-2.jpg" alt="Reaction to Regan Hillyer's live webinar"></div>
+      <div class="testi-card"><img src="testimonial-3.png" alt="Reaction to the Master Resell Rights offer"></div>
+    </div>
+    <p class="testi-note">Genuine public reactions to Regan Hillyer's $10K A Month training and Master Resell Rights offer — shared here as general social proof of the program itself.</p>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-tag">Questions</div>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+
+    <details>
+      <summary>Can you please clarify how I should proceed with Master Resell Rights?</summary>
+      <div class="a"><p>Yes, please read the information <a href="https://reganhillyer.com/10k-mrr-license/" target="_blank" rel="noopener">HERE</a>.</p></div>
+    </details>
+
+    <details>
+      <summary>How does this work for the people who purchase the program?</summary>
+      <div class="a">
+        <p>As a purchaser, please familiarize yourself with all of our terms and conditions to ensure that you absolutely understand what you can and can't do within the Master Resell Rights Purchase agreement.</p>
+        <p>When you onsell the product, you are authorised to keep 100% of the sale, however you must provide the buyer with a receipt for the sale.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>What link do I give them and how do they provide the receipt that they purchased from me?</summary>
+      <div class="a">
+        <p>Your purchaser fills out <a href="https://forms.gle/TgTeWzReoN9gKGHS6" target="_blank" rel="noopener">this form</a> and uploads their receipt they got from you to access the program and the workshop.</p>
+        <p>All purchasers will receive a welcome email with a special link to Regan Hillyer's Network platform where they can access the '$10K A Month Masterclass With Master Resell Rights'.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>I have a problem with the purchase of the product on this site.</summary>
+      <div class="a"><p>Please contact me at <a href="mailto:assist.light2body@gmail.com">assist.light2body@gmail.com</a> with a subject: '10k a Month'.</p></div>
+    </details>
+
+    <details>
+      <summary>I bought the program but I am having issues with the Form for Regan's Network registration, can you assist?</summary>
+      <div class="a">
+        <p>In the section 'Purchased from' you need to give my name: <b>Andrea Drab</b>.</p>
+        <p>The form and the access to the product is co-ordinated by Regan's Team. If you need further help on those after your purchase, please contact her Support Team at: <a href="mailto:support@reganhillyer.com">support@reganhillyer.com</a>.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Are there any instructions on reselling?</summary>
+      <div class="a">
+        <p>Yes, here are the instructions on Reselling:</p>
+        <p><b>Set Up Payment Methods:</b> Purchasers must create their own way of accepting payment and payment links (i.e. PayPal, Stripe, bank deposit, bank to bank fund transfer, cash) — whatever way you wish to accept payments. (Don't send them to my website, otherwise it will be my sale, not yours. 🙂)</p>
+        <p><b>Pricing:</b> The purchaser undertakes to sell the '10K A Month With Master Resell Rights' at, at least US$97. The product may not be sold for less than US$97 or discounted in any way.</p>
+        <p><b>Provide a Receipt:</b> When you onsell the product, you are authorised to keep 100% of the sale, however you must provide the buyer with a receipt for the sale. Remember that the program must be sold for at least US$97. The receipt must say "$10k A Month" in the product/item description.</p>
+        <p><b>Submit the Purchase Form:</b> Your purchaser then fills out the <a href="https://forms.gle/TgTeWzReoN9gKGHS6" target="_blank" rel="noopener">Form</a> given above.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Will there be any marketing materials to support the sales of this program?</summary>
+      <div class="a"><p>Yes. Please access our Marketing Foundations Tool Kit: <a href="https://drive.google.com/drive/folders/1ZpDYDc-TK_L8O-Do0ClTNYuGjFA2OWgg" target="_blank" rel="noopener">Marketing Tool Kit</a>.</p></div>
+    </details>
+
+    <details>
+      <summary>Does the title have to be the same?</summary>
+      <div class="a"><p>Yes. The title of the program '10K A Month' is a part of the intellectual property rights around Regan's product, it is trademarked and has to remain as it is titled.</p></div>
+    </details>
+
+    <details>
+      <summary>Can I charge whatever I want for the program?</summary>
+      <div class="a"><p>The product minimum sale price is $97. However the product can be sold to the price of your choice, any price point above $97. You CANNOT sell the product on auction sites such as eBay and you CANNOT use nor sell this product in a dime sale event, under any circumstances at all.</p></div>
+    </details>
+
+    <details>
+      <summary>Is there a translation into another language available?</summary>
+      <div class="a">
+        <p>We only have the program in English, however those clients who purchase '10K A Month with Master Resell Rights' may translate it into any language and sell it on, as long as the English version accompanies it, to avoid any mis-communication.</p>
+        <p>Please note: Accompanying videos CANNOT be modified in any way. Video training CAN be uploaded on other hosts, however they CANNOT be modified.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Does the Activation also work for those that don't speak English?</summary>
+      <div class="a"><p>Yes. It's about the intention around the activation and works in any language.</p></div>
+    </details>
+  </div>
+</section>
+
+<section class="final-cta" id="buy">
+  <div class="wrap">
+    <div class="section-tag" style="text-align:center;">Your Next Chapter</div>
+    <h2 class="serif">Ready when you are.</h2>
+    <p>No countdown timer, no fake scarcity — just a training that's quietly changed how people relate to money, waiting for you to press play.</p>
+    <a href="https://buy.stripe.com/eVq28q0Cb9h56kPgFMcAo01" class="btn btn-primary" style="padding:16px 34px;font-size:15px;">Get Instant Access — $97 →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="legal">
+      Earnings and income references throughout this page are estimates only and not guarantees — individual results depend on your own effort, skills, and market conditions. This is a digital, non-refundable product. Master Resell Rights are governed by Regan Hillyer International's official Terms &amp; Distribution Rights, linked below; the training itself, its title, and its video content may not be modified in any way. For informational purposes only — not professional financial advice.
+    </p>
+    <div class="links">
+      <a href="https://reganhillyer.com/pages/10k-a-month-with-master-resell-rights-terms-and-conditions" target="_blank" rel="noopener">Terms &amp; Conditions</a>
+      <a href="https://reganhillyer.com/pages/10k-mrr-license" target="_blank" rel="noopener">Distribution Rights &amp; License</a>
+      <a href="https://light2body.hu/termsandprivacy" target="_blank" rel="noopener">Privacy Policy</a>
+      <a href="mailto:assist.light2body@gmail.com">Contact</a>
+    </div>
+    <div class="bottom">
+      <span>Earn.Sleep.Grow. 🌙 · © 2026 · All rights reserved</span>
+      <span>'10K A Month' program © Regan Hillyer International, sold under license</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
